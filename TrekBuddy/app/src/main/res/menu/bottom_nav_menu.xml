@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_matching"
+        android:icon="@drawable/baseline_find_replace_24"
+        android:title="Matching" />
+    <item
+        android:id="@+id/navigation_guide"
+        android:icon="@drawable/baseline_place_24"
+        android:title="Guide" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/baseline_person_pin_24"
+        android:title="Profile" />
+
+</menu>
