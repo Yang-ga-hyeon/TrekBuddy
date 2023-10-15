@@ -29,6 +29,7 @@ class NavigationActivity : AppCompatActivity() {
                 R.id.navigation_matching,R.id.navigation_guide, R.id.navigation_profile
             )
         )
+        setSupportActionBar(binding.toolbar) //추가됨
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
