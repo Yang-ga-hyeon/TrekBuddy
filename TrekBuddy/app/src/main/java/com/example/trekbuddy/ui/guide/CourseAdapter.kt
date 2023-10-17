@@ -41,23 +41,6 @@ class CourseAdapter(private val coursesList: List<Course>, private val googleMap
                 notifyItemChanged(previouslySelectedItemPosition)
                 holder.itemView.setBackgroundColor(Color.YELLOW) // 선택한 항목의 배경색
 
-                // 선택된 항목의 위도와 경도 가져오기
-                val selectedCourse = coursesList[position]
-                val lat = selectedCourse.latitude.toDouble()
-                val lng = selectedCourse.longitude.toDouble()
-                val location = LatLng(lat, lng)
-
-                // 이전에 추가된 마커를 모두 제거
-                googleMap?.clear()
-
-                // 새로운 마커 추가
-                val markerOptions = MarkerOptions()
-                    .position(location)
-                    .title(selectedCourse.courseName)
-                googleMap?.addMarker(markerOptions)
-
-                // 지도를 선택한 위치로 이동
-                googleMap?.moveCamera(CameraUpdateFactory.newLatLng(location))
             }
         }
         // 선택된 항목에 대한 배경색 설정
