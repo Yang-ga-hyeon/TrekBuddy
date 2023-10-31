@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:text="안녕하세요"
+        android:fontFamily="@font/crab"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="364dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/crab"
+        android:text=""
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hello"
+        />
+
+    <TextView
+        android:id="@+id/traveltextView"
+        android:layout_width="267dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="92dp"
+        android:fontFamily="@font/crab"
+        android:text="여행중이시군요!"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hello" />
+
+    <EditText
+        android:id="@+id/EmailAddress"
+        android:layout_width="211dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="e-mail"
+        android:fontFamily="@font/gothic"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/traveltextView" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="211dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="44dp"
+        android:ems="10"
+        android:hint="password"
+        android:fontFamily="@font/gothic"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailAddress" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="115dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/main"
+        android:fontFamily="@font/gothic"
+        android:text="여행가기"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/traveltextView" />
+
+    <Button
+        android:id="@+id/google_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:text="구글 아이디로 로그인"
+        android:fontFamily="@font/gothic"
+        android:textSize="15sp"
+        android:backgroundTint="@color/main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Password" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="133dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/main"
+        android:fontFamily="@font/gothic"
+        android:text="회원가입"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/google_login_button" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
