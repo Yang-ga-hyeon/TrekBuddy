@@ -29,32 +29,41 @@ class CourseAdapter(private val coursesList: List<Course>, private val googleMap
         // Firestore 인스턴스를 가져옵니다.
         val db = FirebaseFirestore.getInstance()
         val courseNumber = coursePosition+1
-        val courseName = "course" + courseNumber.toString()
+        val courseName = "course$courseNumber"
 
-        // "/CourseList/course1/PlaceList" 경로에 대한 컬렉션 참조를 얻습니다.
+        // "SystemCourseList" 컬렉션의 위치를 가져옵니다.
         val collectionRef = db.collection("SystemCourseList")
 
-        collectionRef.document(courseName).collection("PlaceList").get()
-            .addOnSuccessListener { querySnapshot ->
+        collectionRef.document(courseName).get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val places = document["places"] as List<String>
                 locationArrayList.clear() // 기존 데이터를 지우고 새로운 데이터로 대체
                 locationNames.clear()
 
-                for (document in querySnapshot.documents) {
-                    val geoPoint = document.getGeoPoint("coordinate")
-                    val locName = document.getString("name")
-                    if (geoPoint != null) {
-                        val location = LatLng(geoPoint.latitude, geoPoint.longitude)
-                        locationArrayList.add(location)
+                    // PlaceList에서 위치 데이터를 가져옵니다.
+                    for (place in places) {
+                        val placeRef = db.collection("PlaceList").document(place)
+                        placeRef.get()
+                            .addOnSuccessListener { placeDocument ->
+                                val geoPoint = placeDocument.getGeoPoint("coordinate")
+                                val locName = placeDocument.getString("name")
+                                if (geoPoint != null) {
+                                    val location = LatLng(geoPoint.latitude, geoPoint.longitude)
+                                    locationArrayList.add(location)
+                                }
+                                if (locName != null) {
+                                    locationNames.add(locName)
+                                }
+                                locationDataListener.onLocationDataLoaded(locationArrayList, locationNames)
+                            }
+                            .addOnFailureListener { exception ->
+                                Log.e("FirestoreError", "Error loading Firestore data: $exception")
+                            }
                     }
-                    if (locName != null) {
-                        locationNames.add(locName)
-                    }
+                } else {
+                    Log.d("FirestoreError", "No such document")
                 }
-//                //디버깅 용
-//                for (location in locationArrayList) {
-//                    Log.d("LocationInfo", "Latitude: ${location.latitude}, Longitude: ${location.longitude}")
-//                }
-                locationDataListener.onLocationDataLoaded(locationArrayList, locationNames)
             }
             .addOnFailureListener { exception ->
                 Log.e("FirestoreError", "Error loading Firestore data: $exception")

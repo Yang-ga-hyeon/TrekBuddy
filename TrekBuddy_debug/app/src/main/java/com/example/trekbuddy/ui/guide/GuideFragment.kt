@@ -65,7 +65,7 @@ class GuideFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButt
         val coursesList = ArrayList<Course>() // Firebase에서 가져온 데이터
 
         // Firestore에서 데이터를 가져와 RecyclerView에 표시
-        db.collection("CourseList")
+        db.collection("SystemCourseList")
             .get()
             .addOnSuccessListener { querySnapshot ->
                 val coursesList = ArrayList<Course>()
@@ -97,7 +97,7 @@ class GuideFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButt
 
         this.googleMap = googleMap
         // 파이어베이스 컬렉션 참조
-        val collectionRef = db.collection("CourseList")
+        val collectionRef = db.collection("SystemCourseList")
 
         // 데이터 가져오기
         collectionRef.get()
@@ -151,7 +151,7 @@ class GuideFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButt
         enableMyLocation()
         getUserLocation()
 
-        val collectionRef = db.collection("CourseList")
+        val collectionRef = db.collection("SystemCourseList")
 
         collectionRef.get()
             .addOnSuccessListener { documents ->
@@ -353,7 +353,7 @@ class GuideFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButt
                 if (!markerButtonVisible) {
                     tourButton.visibility = View.VISIBLE
                     markerButtonVisible = true
-                    if (distance <= 50) {
+                    if (distance <= 20) {
                         tourButton.isEnabled = true
                         tourButton.alpha = 1.0f // 버튼을 완전히 불투명하지 않게 만듭니다.
                     } else {
@@ -363,7 +363,7 @@ class GuideFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButt
 
                 }
                 else{
-                    if (distance <= 50) {
+                    if (distance <= 20) {
                         tourButton.isEnabled = true
                         tourButton.alpha = 1.0f // 버튼을 완전히 불투명하지 않게 만듭니다.
                     } else {
