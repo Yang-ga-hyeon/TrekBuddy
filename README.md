@@ -22,6 +22,8 @@
 - **Database** : <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=white">
 
 ## 아키텍처
+<img width="1017" alt="아키텍처" src="https://github.com/Yang-ga-hyeon/TrekBuddy/assets/111068038/2f32b512-d40b-4d81-9c86-66f3da123b4d">
+
 
   
 ## 🌟주요 기능
