@@ -1,5 +1,6 @@
 # TrekBuddy
-![ic_launcher_round](https://github.com/Yang-ga-hyeon/TrekBuddy/assets/111068038/91b00313-d3e0-4e75-b414-14fe244f7639)
+<img width="266" alt="logo2" src="https://github.com/Yang-ga-hyeon/TrekBuddy/assets/111068038/6d7fc7fa-8231-4d3b-904a-4571d6421aff">
+
 ### 프로젝트 소개
 한국어 텍스트 모델 기반 여행 가이드 어플리케이션입니다.
 
@@ -20,6 +21,19 @@
 - **TTS** : NAVER CLOVA 
 - **Database** : <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=white">
   
+## 🌟주요 기능
+**1. 관광지별 가이드** <br/>주변에 있는 코스를 둘러 보고 마음에 드는 코스를 클릭, 관광지 핀을 선택할 수 있습니다.
+  <br/> ① 사용자가 관광지 근처에 있으면 버튼이 활성화되어 가이드를 들을 수 있고
+  <br/> ② 그렇지 않으면 구글 길찾기로 관광지까지 가는 길을 검색할 수 있습니다.
+
+**2. 코스 검색** <br/> 등록된 코스를 태그 & 관광지 이름으로 검색하세요. 검색 결과에서 코스를 스크랩하고 가이드를 청취할 수 있습니다. 
+
+**3. 코스 스크랩 모아보기** <br/> 검색 결과에서 나중에 다시 보고 싶은 코스는 스크랩해두고 마이 페이지에서 모아 보세요.
+
+**4. 방문 코스 공유** <br/> 하루동안 방문한 관광지와 코스를 모아보세요. 방문한 코스는 코스를 커스텀하여 다른 사용자에게 공유할 수 있습니다.
+
+## 📆To do
+
 
 
 
