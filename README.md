@@ -20,6 +20,9 @@
 - **Deep Learning Framework** :<img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=PyTorch&logoColor=white"> <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
 - **TTS** : NAVER CLOVA 
 - **Database** : <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=white">
+
+## 아키텍처
+
   
 ## 🌟주요 기능
 **1. 관광지별 가이드** <br/>주변에 있는 코스를 둘러 보고 마음에 드는 코스를 클릭, 관광지 핀을 선택할 수 있습니다.
@@ -33,6 +36,11 @@
 **4. 방문 코스 공유** <br/> 하루동안 방문한 관광지와 코스를 모아보세요. 방문한 코스는 코스를 커스텀하여 다른 사용자에게 공유할 수 있습니다.
 
 ## 📆To do
+- [ ] 검색 결과 코스 디자인과 시스템 등록 코스 디자인 통일
+- [ ] 검색 시 검색어가 포함되는 모든 검색 표시
+- [ ] 사용자 하루 방문 코스 기준 시간 설정 기능 추가
+- [ ] start 버튼 여부 관계 없이 관광지를 돌아다니며 자동으로 가이드를 실행하는 옵션 추가
+      
 
 
 
