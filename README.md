@@ -16,9 +16,10 @@
 - `Kotlin` <img src="https://img.shields.io/badge/kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white">
 - `Android studio Giraffe | 2022.3.1 Patch 2` <img src="https://img.shields.io/badge/android-3DDC84?style=for-the-badge&logo=android&logoColor=white">
 - **Pretrained-model** : 한국어 Bart 모델 오픈 소스 (https://github.com/SKT-AI/KoBART) <img src="https://img.shields.io/badge/google colab-F9AB00?style=for-the-badge&logo=google colab&logoColor=white">
-- **Training data** : AI hub 요약문 및 레포트 생성 데이터 (https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=582)
+- **Training data** : AI hub 요약문 및 레포트 생성 데이터 (https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=582) <img width="100" height="20" src="https://github.com/Yang-ga-hyeon/TrekBuddy/assets/111068038/f4264824-e151-4a5b-94ea-c257113cf0b8">
+
 - **Deep Learning Framework** :<img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=PyTorch&logoColor=white"> <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
-- **TTS** : NAVER CLOVA 
+- **TTS** : NAVER CLOVA <img width="50" height="50" src="https://github.com/Yang-ga-hyeon/TrekBuddy/assets/111068038/9af716e9-dd8c-411c-bffb-7ab7c03a04b3">
 - **Database** : <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=white">
 
 ## 아키텍처
