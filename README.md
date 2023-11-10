@@ -22,9 +22,9 @@
 - **Database** : <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=white">
 
 ## 아키텍처
-<img width="1017" alt="아키텍처" src="https://github.com/Yang-ga-hyeon/TrekBuddy/assets/111068038/2f32b512-d40b-4d81-9c86-66f3da123b4d">
+<img width="1017" alt="아키텍처" src="https://github.com/Yang-ga-hyeon/TrekBuddy/assets/111068038/2f32b512-d40b-4d81-9c86-66f3da123b4d"> <br/>
 
-
+<img width="1348" alt="아키텍처-기술" src="https://github.com/Yang-ga-hyeon/TrekBuddy/assets/111068038/3fe28e87-8341-44bc-86b0-77526c2b430d">
   
 ## 🌟주요 기능
 **1. 관광지별 가이드** <br/>주변에 있는 코스를 둘러 보고 마음에 드는 코스를 클릭, 관광지 핀을 선택할 수 있습니다.
