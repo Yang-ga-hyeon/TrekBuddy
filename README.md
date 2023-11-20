@@ -48,7 +48,7 @@
 ## 설치방법
 - TrekBuddy는 안드로이드용으로 개발된 어플리케이션입니다.
 - 아래 링크를 모바일로 접속하여 zip파일을 다운로드 하세요.<br>
-  -> https://drive.google.com/file/d/1gR-KCCuGZDH4EuDhrqurPZ-GFX6bOqkR/view?usp=share_link
+  -> https://drive.google.com/file/d/1-DgNy610pIXh_DfAmNNEsML5Aqm7OwkP/view?usp=share_link
 - zip 파일을 압축 해제하고 어플리케이션을 설치하세요.
 - 설치 시 보안 관련 안내문을 모두 허용하고 설치를 완료하세요.
 
