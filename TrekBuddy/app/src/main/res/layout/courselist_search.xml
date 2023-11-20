@@ -69,18 +69,27 @@
             android:textColor="#FF4682B4"/>
     </HorizontalScrollView>
 
-
-    <TextView
-        android:id="@+id/placesTextView"
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:id="@+id/PlaceScrollView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="11dp"
-        android:fontFamily="@font/gothic"
-        android:text="ECC->중앙도서관->아산공학관"
-        android:textSize="17sp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tagScrollView"/>
+        app:layout_constraintBottom_toTopOf="@id/tagScrollView">
+        <TextView
+            android:id="@+id/placesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/gothic"
+            android:text="ECC->중앙도서관->아산공학관"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tagScrollView"/>
+    </HorizontalScrollView>
 
     <TextView
         android:id="@+id/textView6"
