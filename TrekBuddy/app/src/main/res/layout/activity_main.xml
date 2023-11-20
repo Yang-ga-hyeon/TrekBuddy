@@ -100,7 +100,7 @@
             android:fontFamily="@font/gothic"
             android:text=" 여행 중…"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="22sp"
             app:layout_constraintStart_toEndOf="@+id/locationTextView" />
 
     </LinearLayout>
