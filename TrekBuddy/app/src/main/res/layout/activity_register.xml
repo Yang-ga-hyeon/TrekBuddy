@@ -1,9 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context="RegisterActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/font"
+        android:textColor="@color/black"
+        android:text="회원가입"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="5"
+        android:columnCount="2"
+        android:padding="3dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+        <!-- 첫 번째 열 -->
+        <TextView
+            android:id="@+id/emailtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:fontFamily="@font/gothic"
+            android:textSize="20sp"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_gravity="center" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/EmailAddressPlace"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="ooo@gmail.com"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:layout_gravity="center"
+            android:inputType="textEmailAddress"
+            app:boxStrokeColor="#FF4682B4"
+            app:hintTextColor="#FF4682B4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:lines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 두 번째 열 -->
+        <TextView
+            android:id="@+id/passwordText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:layout_gravity="center"
+            android:fontFamily="@font/gothic"
+            android:textSize="20sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInputPlace"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_gravity="center"
+            android:hint="6자리 이상 비밀번호를 입력해주세요"
+            android:inputType="textPassword"
+            app:boxStrokeColor="#FF4682B4"
+            app:hintTextColor="#FF4682B4"
+            app:counterEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:lines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 세 번째 열 -->
+        <TextView
+            android:id="@+id/nicknameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nickname"
+            android:layout_column="0"
+            android:layout_row="2"
+            android:layout_gravity="center"
+            android:fontFamily="@font/gothic"
+            android:textSize="20sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nicknameInputPlace"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+
+            android:ems="10"
+            android:hint="닉네임을 입력해주세요."
+            android:inputType="textPersonName"
+            app:boxStrokeColor="#FF4682B4"
+            app:hintTextColor="#FF4682B4"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:layout_gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.612"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordInputPlace">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nicknameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:lines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--네 번째 열 -->
+        <TextView
+            android:id="@+id/ageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:layout_column="0"
+            android:layout_row="3"
+            android:layout_gravity="center"
+            android:fontFamily="@font/gothic"
+            android:textSize="20sp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ageInputPlace"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="나이를 입력해주세요."
+            android:layout_column="1"
+            android:layout_row="3"
+            android:layout_gravity="center"
+            android:inputType="number"
+            app:boxStrokeColor="#FF4682B4"
+            app:hintTextColor="#FF4682B4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.795"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nicknameInputPlace">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ageInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:lines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 다섯번째 열 -->
+        <TextView
+            android:id="@+id/genderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:layout_column="0"
+            android:layout_row="4"
+            android:layout_gravity="center"
+            android:fontFamily="@font/gothic"
+            android:textSize="20sp"/>
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="4"
+            android:layout_gravity="center"
+            app:layout_constraintHorizontal_bias="0.735"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonMale"
+                android:layout_width="79dp"
+                android:layout_height="wrap_content"
+                android:text="남성"
+                android:textSize="20sp"
+                android:fontFamily="@font/gothic"/>
+
+            <RadioButton
+                android:id="@+id/radioButtonFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여성"
+                android:textSize="20sp"
+                android:fontFamily="@font/gothic"/>
+
+        </RadioGroup>
+        <!-- 나머지 구성 요소들도 유사한 방식으로 추가 -->
+    </GridLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/btn_ripple_blue"
+        android:text="가입하기"
+        android:textSize="20sp"
+        android:fontFamily="@font/gothic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

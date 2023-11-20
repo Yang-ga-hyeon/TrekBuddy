@@ -1,13 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.guide.InformFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ui.guide.InformFragment"
+    android:background="#FFFFFF">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/imageTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/visitImageView"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/visit2" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="아산공학관"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:fontFamily="@font/crab"/>
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:layout_gravity="end|center_vertical"
+            android:src="@drawable/back" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/asan"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="30dp"/>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
-</androidx.core.widget.NestedScrollView>
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <!-- 뒤로가기 버튼 -->
+        <ImageButton
+            android:id="@+id/backwardGuideButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/backward_icon"
+            android:scaleType="centerCrop"
+            android:padding="0dp"
+            android:layout_marginRight="16dp"
+            android:contentDescription="뒤로가기 버튼"
+            android:clickable="true"
+            android:background="@android:color/transparent"/>
+
+        <!-- 재생 버튼 -->
+        <ImageButton
+            android:id="@+id/playGuideButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/play_icon"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:padding="0dp"
+            android:contentDescription="재생 버튼"
+            android:layout_marginRight="-35dp"
+            android:onClick="onPlayGuideButtonClick" />
+
+        <!-- 일시정지 버튼 (초기에는 숨겨둠) -->
+        <ImageButton
+            android:id="@+id/pauseGuideButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/pause_icon"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:padding="0dp"
+            android:layout_marginRight="16dp"
+            android:contentDescription="일시정지 버튼"
+            android:onClick="onPauseGuideButtonClick" />
+
+        <!-- 10초 앞으로가기 버튼 -->
+        <ImageButton
+            android:id="@+id/forwardGuideButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/forward_icon"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            android:padding="0dp"
+            android:contentDescription="앞으로가기 버튼"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="2dp">
+
+        <ImageView
+            android:id="@+id/scriptIconView"
+            android:layout_width="39dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/script" />
+
+        <TextView
+            android:id="@+id/icontextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/gothic"
+            android:text="스크립트"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="70dp"
+        android:fillViewport="true"
+        >
+
+        <TextView
+            android:id="@+id/scriptTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="스크립트 내용"
+            android:fontFamily="@font/gothic"
+            android:textSize="16sp"
+            android:background="@drawable/border_background2"/>
+    </ScrollView>
+
+
+
+
+</LinearLayout>

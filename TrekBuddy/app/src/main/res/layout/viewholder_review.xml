@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/border_background2"
+    android:elevation="10dp">
+
+
+    <LinearLayout
+        android:id="@+id/imageTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/visitImageView"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/visit2" />
+
+        <TextView
+            android:id="@+id/placeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/gothic"
+            android:text="(1) 잠실 롯데월드"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/imageTextLayout"
+        app:layout_constraintBottom_toTopOf="@+id/tagEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_gravity="center"
+        android:rowCount="2"
+        android:columnCount="4">
+        <TextView
+            android:id="@+id/tagView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#FFF0F8FF"
+            android:fontFamily="@font/gothic"
+            android:text="#액티비티"
+            android:textSize="18sp"
+            android:layout_margin="4dp"/>
+        <TextView
+            android:id="@+id/tagView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF0F8FF"
+            android:fontFamily="@font/gothic"
+            android:text="#데이트"
+            android:textSize="18sp"
+            android:layout_margin="4dp"/>
+        <TextView
+            android:id="@+id/tagView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF0F8FF"
+            android:fontFamily="@font/gothic"
+            android:text="#문화유산"
+            android:textSize="18sp"
+            android:layout_margin="4dp"/>
+
+        <TextView
+            android:id="@+id/tagView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF0F8FF"
+            android:fontFamily="@font/gothic"
+            android:text="예쁜풍경"
+            android:textSize="18sp"
+            android:layout_margin="4dp"/>
+
+        <TextView
+            android:id="@+id/tagView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF0F8FF"
+            android:fontFamily="@font/gothic"
+            android:text="#한적한"
+            android:textSize="18sp"
+            android:layout_margin="4dp"/>
+
+        <TextView
+            android:id="@+id/tagView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF0F8FF"
+            android:fontFamily="@font/gothic"
+            android:text="#젊음"
+            android:textSize="18sp"
+            android:layout_margin="4dp" />
+
+
+        <TextView
+            android:id="@+id/tagView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF0F8FF"
+            android:fontFamily="@font/gothic"
+            android:text="#어린이"
+            android:textSize="18sp"
+            android:layout_margin="4dp"
+            />
+
+        <TextView
+            android:id="@+id/tagView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF0F8FF"
+            android:fontFamily="@font/gothic"
+            android:text="#20대"
+            android:textSize="18sp"
+            android:layout_margin="4dp"
+            />
+    </GridLayout>
+    <EditText
+        android:id="@+id/tagEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="96dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/gothic"
+        android:hint="직접 입력(태그를 제외하고 입력)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="main">#FF000000</color>
+    <color name="sub">#87E1FF</color>
+    <color name="light_blue">#FFB0C4DE</color>
+    <color name="clickyellow">#FAED7D</color>
+
+
+    <color name="start">#ff6e7f</color>
+    <color name="end">#bfe9ff</color>
+    <color name="outline">#000000</color>
+
+
 </resources>

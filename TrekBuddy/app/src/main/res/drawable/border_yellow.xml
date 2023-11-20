@@ -1,0 +1,23 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="2dp"
+        android:left="0dp"
+        android:right="2dp"
+        android:top="0dp">
+        <layer-list>
+            <!-- 흰색 배경 색상과 10dp 모서리 반경을 가지는 모양 -->
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="#FFFFFF"/>
+                    <corners android:radius="10dp"/>
+                </shape>
+            </item>
+            <!-- 노란색 테두리를 가지는 모양 (아래와 오른쪽에만 적용) -->
+            <item android:right="0dp" android:top="0dp">
+                <shape android:shape="rectangle">
+                    <stroke android:color="#FFFFD700" android:width="1dp" /> <!-- 노란색 테두리 설정 -->
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

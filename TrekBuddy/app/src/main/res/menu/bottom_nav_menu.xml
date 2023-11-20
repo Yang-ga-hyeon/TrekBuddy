@@ -3,16 +3,21 @@
 
     <item
         android:id="@+id/navigation_matching"
-        android:icon="@drawable/baseline_find_replace_24"
-        android:title="Matching" />
+        android:icon="@drawable/baseline_search_24"
+        android:title="Search"
+        android:iconTint="@color/white"/>
+
     <item
         android:id="@+id/navigation_guide"
         android:icon="@drawable/baseline_place_24"
-        android:title="Guide" />
+        android:title="Guide"
+        android:iconTint="@color/white"></item>
+
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/baseline_person_pin_24"
-        android:title="Profile" />
+        android:title="Profile"
+        android:iconTint="@color/white"/>
 
 </menu>

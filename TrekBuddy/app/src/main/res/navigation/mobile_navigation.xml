@@ -3,21 +3,82 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
+    android:background="@color/main"
     app:startDestination="@+id/navigation_guide">
 
     <fragment
         android:id="@+id/navigation_matching"
         android:name="com.example.trekbuddy.ui.matching.MatchingFragment"
-        android:label="Matching"
-        tools:layout="@layout/fragment_matching" />
+        android:label=""
+        tools:layout="@layout/fragment_matching">
+
+    </fragment>
+
     <fragment
         android:id="@+id/navigation_guide"
         android:name="com.example.trekbuddy.ui.guide.GuideFragment"
-        android:label="Guide"
-        tools:layout="@layout/fragment_guide" />
+        android:label=""
+        tools:layout="@layout/fragment_guide">
+
+    <action
+        android:id="@+id/action_navigation_guide_to_navigation_inform"
+        app:destination="@id/navigation_inform" />
+    </fragment>
+
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.trekbuddy.ui.profile.ProfileFragment"
-        android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        android:label=""
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_visit"
+            app:destination="@id/navigation_visit" />
+         <action
+            android:id="@+id/action_navigation_profile_to_navigation_like"
+            app:destination="@id/navigation_like" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_edit"
+            app:destination="@id/navigation_edit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_edit"
+        android:name="com.example.trekbuddy.ui.profile.EditFragment"
+        android:label=""
+        tools:layout="@layout/fragment_edit" />
+
+    <fragment
+        android:id="@+id/navigation_visit"
+        android:name="com.example.trekbuddy.ui.profile.VisitFragment"
+        android:label=""
+        tools:layout="@layout/fragment_visit">
+        <action
+            android:id="@+id/action_navigation_visit_to_navigation_review"
+            app:destination="@id/navigation_review" />
+        <action
+            android:id="@+id/action_navigation_visit_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_like"
+        android:name="com.example.trekbuddy.ui.profile.LikeFragment"
+        android:label=""
+        tools:layout="@layout/fragment_likes" />
+
+    <fragment
+        android:id="@+id/navigation_review"
+        android:name="com.example.trekbuddy.ui.profile.ReviewFragment"
+        android:label=""
+        tools:layout="@layout/fragment_review">
+        <action
+            android:id="@+id/action_navigation_review_to_navigation_visit"
+            app:destination="@id/navigation_visit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_inform"
+        android:name="com.example.trekbuddy.ui.guide.InformFragment"
+        android:label=""
+        tools:layout="@layout/fragment_inform" />
 </navigation>
