@@ -8,10 +8,13 @@
 
     <ImageView
         android:id="@+id/myImageView"
-        android:layout_width="390dp"
-        android:layout_height="187dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="130dp"
+        android:layout_marginHorizontal="5dp"
         android:src="@drawable/logo_tb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="13dp" />
 
@@ -98,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/gothic"
-            android:text=" 여행 중…"
+            android:text=" 여행 중..."
             android:textColor="@color/black"
             android:textSize="22sp"
             app:layout_constraintStart_toEndOf="@+id/locationTextView" />
