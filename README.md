@@ -66,7 +66,7 @@ TrekBuddy Github에서 main -> Code -> Download Zip을 클릭하시면 소스파
 ![image](https://github.com/Yang-ga-hyeon/TrekBuddy/assets/113418750/9572ff54-f938-40f4-9098-1abe99cbe5ff)
 
 다운받은 Zip 파일을 압축을 해제합니다. 안드로이드 스튜디오를 열고 압축해제한 폴더를 선택합니다.
-(진행 중인 프로젝트가 있는 안드로이드 스튜디오를 키셨다면 File -> Open을 통해 폴더를 선택해줍니다.)
+</br> (진행 중인 프로젝트가 있는 안드로이드 스튜디오를 키셨다면 File -> Open을 통해 폴더를 선택해줍니다.)
 ![image](https://github.com/Yang-ga-hyeon/TrekBuddy/assets/113418750/1c3f9222-5ffa-43f6-84f8-7a201f20143c)
 
 apk가 아닌 가상 에뮬레이터를 이용하여 확인할 수 있습니다. 가상 에뮬레이터를 설치 및 확인하는 방법은 아래 주소에 들어가셔서 마지막 5번 부분을 참고해주세요.
