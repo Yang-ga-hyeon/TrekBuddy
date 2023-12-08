@@ -58,10 +58,7 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 ## source code 설명
 
-## how to build
-
-
-## how to install
+##💥 how to build & how to install
 TrekBuddy Github에서 main -> Code -> Download Zip을 클릭하시면 소스파일을 전체 다운받으실 수 있습니다.
 ![image](https://github.com/Yang-ga-hyeon/TrekBuddy/assets/113418750/9572ff54-f938-40f4-9098-1abe99cbe5ff)
 
