@@ -71,9 +71,10 @@
 
 - apk가 아닌 가상 에뮬레이터를 이용하여 확인할 수 있습니다.
 - 가상 에뮬레이터를 설치 및 확인하는 방법은 아래 주소에 들어가셔서 마지막 5번 부분을 참고해주세요.
+- 또한, 기본적인 로그인, 회원가입 툴을 만들고 싶으신 분들도 아래 주소를 참고해주세요.
 - https://gh-coding.tistory.com/4
 
 ## ⭕ Test Account
-ID: hi@gmail.com
+ID: hi@gmail.com <br>
 PASSWORD: hihihi
 
