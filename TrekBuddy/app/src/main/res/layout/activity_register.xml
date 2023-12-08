@@ -45,7 +45,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/EmailAddressPlace"
-            android:layout_width="260dp"
+            android:layout_width="230dp"
             android:layout_height="50dp"
             android:ems="10"
             android:hint="ooo@gmail.com"
@@ -79,7 +79,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordInputPlace"
-            android:layout_width="260dp"
+            android:layout_width="230dp"
             android:layout_height="50dp"
             android:ems="10"
             android:layout_column="1"
@@ -114,7 +114,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nicknameInputPlace"
-            android:layout_width="260dp"
+            android:layout_width="230dp"
             android:layout_height="50dp"
 
             android:ems="10"
@@ -151,7 +151,7 @@
             android:textSize="20sp" />
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ageInputPlace"
-            android:layout_width="260dp"
+            android:layout_width="230dp"
             android:layout_height="50dp"
             android:ems="10"
             android:hint="나이를 입력해주세요."

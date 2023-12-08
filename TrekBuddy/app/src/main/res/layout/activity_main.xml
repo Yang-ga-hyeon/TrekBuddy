@@ -93,7 +93,7 @@
             android:gravity="center_horizontal"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="22sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/traveltextView"
@@ -103,7 +103,7 @@
             android:fontFamily="@font/gothic"
             android:text=" 여행 중..."
             android:textColor="@color/black"
-            android:textSize="22sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/locationTextView" />
 
     </LinearLayout>

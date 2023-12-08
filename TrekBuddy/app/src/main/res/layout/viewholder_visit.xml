@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="130dp"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
     android:background="@drawable/grey_background">
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="29dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginBottom="75dp"
         android:fontFamily="@font/gothic"
         android:text="2023-10-26"
         android:textSize="17sp"
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="123dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginBottom="75dp"
         android:fontFamily="@font/gothic"
         android:text="방문일:"
         android:textSize="17sp"
@@ -80,37 +80,58 @@
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tagView"
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:id="@+id/placeScrollView"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tagScrollView"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/visitplacesView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:paddingRight="15dp"
+            android:fontFamily="@font/gothic"
+            android:text="ECC->중앙도서관->아산공학관"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/tagScrollView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:text="#걷기좋은 #캠퍼스 #20대"
-        android:fontFamily="@font/gothic"
-        android:textSize="17sp"
-        android:textColor="#FF4682B4"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/logIDView"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/visitplacesView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="11dp"
-        android:fontFamily="@font/gothic"
-        android:text="ECC->중앙도서관->아산공학관"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        <TextView
+            android:id="@+id/tagView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gothic"
+            android:paddingRight="15dp"
+            android:text="#걷기좋은 #캠퍼스 #20대"
+            android:textColor="#FF4682B4"
+            android:textSize="17sp" />
+    </HorizontalScrollView>
+
+
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="75dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="100dp"
         android:fontFamily="@font/gothic"
         android:text="예상 소요시간:"
         android:textSize="17sp"
@@ -122,7 +143,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="100dp"
         android:fontFamily="@font/gothic"
         android:text="1시간"
         android:textSize="17sp"
