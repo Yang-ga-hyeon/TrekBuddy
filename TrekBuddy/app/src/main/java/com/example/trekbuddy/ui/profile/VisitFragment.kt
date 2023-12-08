@@ -1,6 +1,6 @@
 package com.example.trekbuddy.ui.profile
 
-import android.app.Activity
+import kotlinx.coroutines.*
 import android.os.Bundle
 import android.app.AlertDialog
 import android.content.Intent
@@ -60,12 +60,17 @@ class VisitFragment : Fragment(), OnShareButtonClickListener {
             if (dataChanged) {
                 // 데이터가 변경되었을 때 RecyclerView를 다시 로드
                 println("새로고침")
-                loadVisitDataFromFirebase()
+                // 1. 코루틴을 사용하여 호출
+                CoroutineScope(Dispatchers.Main).launch {
+                    loadVisitDataFromFirebase()
+                }
             }
         }
 
-        // Firebase에서 데이터를 가져와서 Adapter에 전달
-        loadVisitDataFromFirebase()
+        // 2. 코루틴을 사용하여 호출
+        CoroutineScope(Dispatchers.Main).launch {
+            loadVisitDataFromFirebase()
+        }
 
 
         val backButton = root.findViewById<ImageView>(R.id.backButton)
@@ -113,115 +118,104 @@ class VisitFragment : Fragment(), OnShareButtonClickListener {
             .show()
     }
 
-    private fun loadVisitDataFromFirebase() {
+    private val coroutineScope = CoroutineScope(Dispatchers.Main)
+    private suspend fun getPlaceName(placeId: String): String {
+        val placeDocRef = db.collection("PlaceList").document(placeId)
+        return try {
+            val placeDocSnapshot = placeDocRef.get().await()
+            if (placeDocSnapshot.exists()) {
+                placeDocSnapshot["name"] as? String ?: ""
+            } else {
+                ""
+            }
+        } catch (e: Exception) {
+            // Handle exceptions appropriately
+            e.printStackTrace()
+            ""
+        }
+    }
+
+    private suspend fun loadVisitDataFromFirebase() {
         // Firebase에서 데이터를 가져와 VisitAdapter에 전달
-        db.collection("Log")
-            .whereEqualTo("userID", currentUserId) // userID 필드와 값이 일치하는 문서만 선택
-            .get()
-            .addOnSuccessListener { querySnapshot ->
-                val visitList = mutableListOf<Visitlist>()
+        try {
+            val querySnapshot = db.collection("Log")
+                .whereEqualTo("userID", currentUserId) // userID 필드와 값이 일치하는 문서만 선택
+                .get()
+                .await()
 
-                val totalDocs = querySnapshot.documents.size
-                var processedDocs = 0
+            val visitList = mutableListOf<Visitlist>()
 
-                for (document in querySnapshot) {
-                    val logID = document.id
-                    val courseName = document["logname"].toString()
-                    val placeID = document["places"] as? List<String> ?: emptyList()
-                    val places = mutableListOf<String>()
+            for (document in querySnapshot) {
+                val logID = document.id
+                val courseName = document["logname"].toString()
+                val placeID = document["places"] as? List<String> ?: emptyList()
+                val places = mutableListOf<String>()
 
-                    for (id in placeID) {
-                        val placeDocRef = db.collection("PlaceList").document(id)
-
-                        placeDocRef.get()
-                            .addOnSuccessListener { placeDocSnapshot ->
-                                if (placeDocSnapshot.exists()) {
-                                    val placeName = placeDocSnapshot["name"] as? String
-                                    placeName?.let {
-                                        places.add(it)
-                                    }
-                                } else {
-                                    // 해당 문서가 존재하지 않을 때 처리
-                                }
-
-                                // 마지막 장소 데이터까지 처리된 경우
-                                if (++processedDocs == totalDocs) {
-                                    // 어댑터를 초기화하고 데이터를 설정
-                                    adapter = VisitAdapter(visitList, this)
-                                    recyclerView.adapter = adapter
-                                    adapter.notifyDataSetChanged()
-                                    Log.d("VisitFragment", "Fetched data: $visitList")
-                                }
-                            }
-                            .addOnFailureListener { exception ->
-                                // Firestore에서 데이터를 가져오는 도중 실패한 경우 처리
-                                // 예외 처리 로직 추가
-                                if (++processedDocs == totalDocs) {
-                                    // 마지막 장소 데이터까지 처리된 경우
-                                    // 어댑터를 초기화하고 데이터를 설정
-                                    adapter = VisitAdapter(visitList, this)
-                                    recyclerView.adapter = adapter
-                                    adapter.notifyDataSetChanged()
-                                    Log.d("VisitFragment", "Fetched data: $visitList")
-                                }
-                            }
-                    }
-
-                    val starts = document["starts"] as? List<com.google.firebase.Timestamp> ?: emptyList()
-                    val startTimeMillis = starts[0].toDate().time
-                    val endTimeMillis = starts[starts.size-1].toDate().time
-                    val timeDifferenceMillis = endTimeMillis - startTimeMillis
-                    val minutes = (timeDifferenceMillis / (1000 * 60)).toInt() // Milliseconds to minutes
-                    val time = minutes
-
-                    val tagID  = mutableListOf<String>()
-                    runBlocking {
-                        val tasks = placeID.map { place ->
-                            GlobalScope.async {
-                                val docRef = db.collection("PlaceList").document(place)
-                                val document = docRef.get().await()
-                                if (document != null) {
-                                    val tagList = document["tag"] as? List<String> ?: emptyList()
-                                    tagID.addAll(tagList)
-                                }
-                            }
-                        }
-                        // 모든 작업을 기다림
-                        tasks.forEach { it.await() }
-                        // 모든 데이터가 도착한 후에 tagID 목록을 사용할 수 있음
-                        println(tagID.size)
-                    }
-                    println(tagID.size)
-
-                    val tags = mutableListOf<String>()
-                    runBlocking {
-                        val tasks = tagID.map { tagid ->
-                            GlobalScope.async {
-                                if (!tagid.isNullOrEmpty()) { // tagid가 null 또는 빈 문자열이 아닌지 확인
-                                    val tagdocRef = db.collection("TagList").document(tagid)
-                                    val document = tagdocRef.get().await()
-                                    if (document != null) {
-                                        val expression = document["expression"].toString()
-                                        tags.add(expression)
-                                    }
-                                }
-                            }
-                        }
-                        tasks.forEach { it.await() }
-                    }
-
-                    val date_stamp = starts[0].toDate() // Timestamp를 Date로 변환
-                    val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) // 날짜 형식 지정
-                    val date = dateFormat.format(date_stamp)
-
-                    val visit = Visitlist(logID, courseName, tags, places, time, date)
-                    visitList.add(visit)
+                for (id in placeID) {
+                    val placeName = getPlaceName(id)
+                    places.add(placeName)
                 }
+
+                val starts = document["starts"] as? List<com.google.firebase.Timestamp> ?: emptyList()
+                val startTimeMillis = starts[0].toDate().time
+                val endTimeMillis = starts[starts.size - 1].toDate().time
+                val timeDifferenceMillis = endTimeMillis - startTimeMillis
+                val minutes = (timeDifferenceMillis / (1000 * 60)).toInt() // Milliseconds to minutes
+                val time = minutes
+
+                val tagID = mutableListOf<String>()
+                runBlocking {
+                    val tasks = placeID.map { place ->
+                        GlobalScope.async {
+                            val docRef = db.collection("PlaceList").document(place)
+                            val document = docRef.get().await()
+                            if (document != null) {
+                                val tagList = document["tag"] as? List<String> ?: emptyList()
+                                tagID.addAll(tagList)
+                            }
+                        }
+                    }
+                    // 모든 작업을 기다림
+                    tasks.forEach { it.await() }
+                    // 모든 데이터가 도착한 후에 tagID 목록을 사용할 수 있음
+                    println(tagID.size)
+                }
+                println(tagID.size)
+
+                val tags = mutableListOf<String>()
+                runBlocking {
+                    val tasks = tagID.map { tagid ->
+                        GlobalScope.async {
+                            if (!tagid.isNullOrEmpty()) { // tagid가 null 또는 빈 문자열이 아닌지 확인
+                                val tagdocRef = db.collection("TagList").document(tagid)
+                                val document = tagdocRef.get().await()
+                                if (document != null) {
+                                    val expression = document["expression"].toString()
+                                    tags.add(expression)
+                                }
+                            }
+                        }
+                    }
+                    tasks.forEach { it.await() }
+                }
+
+                val date_stamp = starts[0].toDate() // Timestamp를 Date로 변환
+                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()) // 날짜 형식 지정
+                val date = dateFormat.format(date_stamp)
+
+                val visit = Visitlist(logID, courseName, tags, places, time, date)
+                visitList.add(visit)
             }
-            .addOnFailureListener { exception ->
-                // Firebase에서 데이터를 가져오지 못한 경우 처리
-                // 예외 처리 로직 추가
-            }
+
+            // 어댑터를 초기화하고 데이터를 설정
+            adapter = VisitAdapter(visitList, this@VisitFragment)
+            recyclerView.adapter = adapter
+            adapter.notifyDataSetChanged()
+            Log.d("VisitFragment", "Fetched data: $visitList")
+        } catch (e: Exception) {
+            // Handle exceptions appropriately
+            e.printStackTrace()
+        }
     }
 
     override fun onDestroyView() {
