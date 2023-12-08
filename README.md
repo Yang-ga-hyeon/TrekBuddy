@@ -75,6 +75,12 @@
 - 또한, 기본적인 로그인, 회원가입 툴을 만들고 싶으신 분들도 아래 주소를 참고해주세요.
 - https://gh-coding.tistory.com/4
 
+- 사용 전, 안드로이드 스튜디오에서 Gradle Scripts -> local.properties (SDK Location) 부분에 Google Maps API Key를 발급 받고 삽입해주셔야합니다.
+- 아래 구글 맵스 공식 문서를 이용하여 key를 발급 받아주세요.
+- https://developers.google.com/maps/documentation/javascript/get-api-key?hl=ko
+  ![image](https://github.com/Yang-ga-hyeon/TrekBuddy/assets/113418750/15e13bd0-912a-4c73-9955-bb61f64b3ab5)
+
+
 ## ⭕ Test Account
 ID: hi@gmail.com <br>
 PASSWORD: hihihi
