@@ -125,7 +125,8 @@ class InformFragment : Fragment() {
         // backButton의 클릭 이벤트 리스너
         val backButton = root.findViewById<ImageView>(R.id.backButton)
         backButton.setOnClickListener {
-            findNavController().navigateUp()
+            val navController = findNavController()
+            navController.navigate(R.id.navigation_guide)
         }
 
         // 루트 뷰를 반환합니다

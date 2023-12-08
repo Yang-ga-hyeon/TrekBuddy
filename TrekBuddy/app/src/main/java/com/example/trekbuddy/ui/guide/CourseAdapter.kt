@@ -24,19 +24,20 @@ class CourseAdapter(private val coursesList: List<Course>, private val googleMap
 
 
     // Firestore에서 Geopoint 데이터를 읽어오고 지도에 마커를 표시
-    private fun loadGeoPointsFromFirestore(coursePosition: Int) {
+    private fun loadGeoPointsFromFirestore(coursename: String) {
 
         // Firestore 인스턴스를 가져옵니다.
         val db = FirebaseFirestore.getInstance()
-        val courseNumber = coursePosition+1
-        val courseName = "course$courseNumber"
+        val tempCourseName = coursename
 
         // "SystemCourseList" 컬렉션의 위치를 가져옵니다.
         val collectionRef = db.collection("SystemCourseList")
 
-        collectionRef.document(courseName).get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
+        collectionRef.whereEqualTo("name", tempCourseName).get()
+            .addOnSuccessListener { documents ->
+                if (!documents.isEmpty) {
+                    // 여러 개의 문서가 반환될 수 있지만, 여기서는 첫 번째 문서만 사용합니다.
+                    val document = documents.documents[0]
                     val places = document["places"] as List<String>
                     locationArrayList.clear() // 기존 데이터를 지우고 새로운 데이터로 대체
                     locationNames.clear()
@@ -65,13 +66,14 @@ class CourseAdapter(private val coursesList: List<Course>, private val googleMap
                             }
                     }
                 } else {
-                    Log.d("FirestoreError", "No such document")
+                    Log.d("FirestoreError", "No such document with name $tempCourseName")
                 }
             }
             .addOnFailureListener { exception ->
                 Log.e("FirestoreError", "Error loading Firestore data: $exception")
             }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -98,7 +100,7 @@ class CourseAdapter(private val coursesList: List<Course>, private val googleMap
                 notifyItemChanged(previouslySelectedItemPosition)
                 holder.itemView.setBackgroundColor(clickColor) // 선택한 항목의 배경색
 
-                loadGeoPointsFromFirestore(position)
+                loadGeoPointsFromFirestore(holder.courseName.text.toString())
             }
         }
         // 선택된 항목에 대한 배경색 설정
